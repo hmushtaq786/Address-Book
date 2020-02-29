@@ -1,0 +1,15 @@
+C:\Users\Hamza Mushtaq\source\repos\AddressBook\AddressBook\bin\Debug\AddressBook.exe.config
+C:\Users\Hamza Mushtaq\source\repos\AddressBook\AddressBook\bin\Debug\AddressBook.exe
+C:\Users\Hamza Mushtaq\source\repos\AddressBook\AddressBook\bin\Debug\AddressBook.pdb
+C:\Users\Hamza Mushtaq\source\repos\AddressBook\AddressBook\obj\Debug\AddressBook.csprojAssemblyReference.cache
+C:\Users\Hamza Mushtaq\source\repos\AddressBook\AddressBook\obj\Debug\App.g.cs
+C:\Users\Hamza Mushtaq\source\repos\AddressBook\AddressBook\obj\Debug\AddressBook_MarkupCompile.cache
+C:\Users\Hamza Mushtaq\source\repos\AddressBook\AddressBook\obj\Debug\AddressBook_MarkupCompile.lref
+C:\Users\Hamza Mushtaq\source\repos\AddressBook\AddressBook\obj\Debug\AddressBook.g.resources
+C:\Users\Hamza Mushtaq\source\repos\AddressBook\AddressBook\obj\Debug\AddressBook.Properties.Resources.resources
+C:\Users\Hamza Mushtaq\source\repos\AddressBook\AddressBook\obj\Debug\AddressBook.csproj.GenerateResource.cache
+C:\Users\Hamza Mushtaq\source\repos\AddressBook\AddressBook\obj\Debug\AddressBook.csproj.CoreCompileInputs.cache
+C:\Users\Hamza Mushtaq\source\repos\AddressBook\AddressBook\obj\Debug\AddressBook.exe
+C:\Users\Hamza Mushtaq\source\repos\AddressBook\AddressBook\obj\Debug\AddressBook.pdb
+C:\Users\Hamza Mushtaq\source\repos\AddressBook\AddressBook\obj\Debug\MainWindow.g.cs
+C:\Users\Hamza Mushtaq\source\repos\AddressBook\AddressBook\obj\Debug\MainWindow.baml

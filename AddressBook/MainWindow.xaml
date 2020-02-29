@@ -1,0 +1,119 @@
+﻿<Window x:Class="AddressBook.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AddressBook"
+        mc:Ignorable="d"
+        Title="AddressBook" Height="500" Width="300" Background="{x:Null}" Icon="briefcase-solid.png">
+    <Window.Resources>
+        <DataTemplate x:Key="ContactTemplate">
+            <Grid Height="70" Width="226">
+                <Ellipse x:Name="ellipse" HorizontalAlignment="Left" Height="50" Margin="5,10,0,0" Stroke="{x:Null}" VerticalAlignment="Top" Width="50">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="{Binding photoAddress}"/>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <Label Content="{Binding Fullname}" HorizontalAlignment="Left" Margin="69,20,0,0" VerticalAlignment="Top" Width="156" Height="30                        " FontFamily="Calibri" FontSize="16"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="CreateNewContactTemplate">
+            <Grid Height="70" Width="226">
+                <Ellipse HorizontalAlignment="Left" Height="50" Margin="5,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="50">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="plus.png"/>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <Label Content="Create contact" HorizontalAlignment="Left" Margin="69,20,0,0" VerticalAlignment="Top" Width="156" Height="30                        " FontFamily="Calibri" FontSize="16"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="buttontemp">
+            <Grid Height="67" Width="222">
+                <Ellipse HorizontalAlignment="Left" Height="47" Stroke="{x:Null}" VerticalAlignment="Top" Width="57" Margin="10,10,0,0">
+                    <Ellipse.Fill>
+                        <ImageBrush/>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="92,22,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="buttonTemp">
+            <Grid Height="70" Width="223">
+                <Ellipse HorizontalAlignment="Left" Height="50" Margin="10,10,0,0" Stroke="{x:Null}" VerticalAlignment="Top" Width="50">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="{Binding photoAddress}"/>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <Label x:Name="textLabel" Content="{Binding Fullname}" HorizontalAlignment="Left" Margin="75,21,0,0" VerticalAlignment="Top" Width="148" Height="27" FontFamily="Calibri" FontSize="16"/>
+                <Button HorizontalAlignment="Left" Height="70" Margin="0,0,-3,0" VerticalAlignment="Top" Width="226" Background="#FFF1F1F1" BorderBrush="{x:Null}" BorderThickness="0" Visibility="Hidden"/>
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>
+    <Grid x:Name="mainGrid" Height="469" VerticalAlignment="Bottom">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid x:Name="registerGrid" Margin="0,-2,0,0" Grid.ColumnSpan="2" Background="#FFF1F1F1" Visibility="Visible" d:IsHidden="True">
+            <Label Content="Address Book" HorizontalAlignment="Left" Margin="8,10,0,0" VerticalAlignment="Top" Width="272" Height="60" FontSize="36" FontFamily="Calibri" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FFFFB5B5" BorderThickness="2,2,2,0"/>
+            <Label Content="Register" HorizontalAlignment="Left" Margin="71,75,0,0" VerticalAlignment="Top" Width="139" Height="40" FontSize="22" FontFamily="Calibri" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="2,2,5,5" BorderBrush="#FFFFB5B5" BorderThickness="2,0,2,2"/>
+            <Rectangle HorizontalAlignment="Left" Height="261" Margin="40,153,0,0" VerticalAlignment="Top" Width="202" Fill="#FFF7EDED" Stroke="#FFFFB5B5"/>
+            <TextBox x:Name="usernameRegister" HorizontalAlignment="Left" Height="35" Margin="71,184,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Width="139" BorderThickness="0,0,0,2" Padding="5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="16" FontFamily="Calibri" Background="#FFF7EDED" BorderBrush="#FFFFB5B5" GotFocus="TextFields_GotFocus" LostFocus="textboxes_LostFocus"/>
+            <Button x:Name="register_btn" Content="Register" HorizontalAlignment="Left" Margin="96,363,0,0" VerticalAlignment="Top" Width="95" Height="30" FontFamily="Calibri" FontSize="16" Background="#FFF1F1F1" BorderBrush="#FFFFB5B5" BorderThickness="2" Click="Register_btn_Click" IsDefault="True"/>
+            <Button x:Name="clickhereRegister" Content="Click here" HorizontalAlignment="Left" Margin="181,428,0,0" VerticalAlignment="Top" Width="61" Background="#FFF1F1F1" BorderBrush="#FFFFB5B5" BorderThickness="1" Click="ClickhereRegister_Click"/>
+            <Label Content="Already have an account?" HorizontalAlignment="Left" Margin="36,425,0,0" VerticalAlignment="Top"/>
+            <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Margin="71,248,0,0" VerticalAlignment="Top" Width="139" Height="35" Background="#FFF7EDED" BorderBrush="#FFFFB5B5" Padding="5" FontFamily="Calibri" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0,0,0,2" Password="Password" GotFocus="PasswordBox_GotFocus_1" LostFocus="PasswordBox_LostFocus"/>
+            <PasswordBox x:Name="passwordBox2" HorizontalAlignment="Left" Margin="71,301,0,0" VerticalAlignment="Top" Width="139" Height="35" Background="#FFF7EDED" BorderBrush="#FFFFB5B5" Padding="5" FontFamily="Calibri" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0,0,0,2" Password="Password" GotFocus="PasswordBox_GotFocus_1" LostFocus="PasswordBox_LostFocus"/>
+        </Grid>
+        <Grid x:Name="loginGrid" Margin="0,-2,0,0" Grid.ColumnSpan="2" Background="#FFF1F1F1" d:IsHidden="True">
+            <Label Content="Address Book" HorizontalAlignment="Left" Margin="8,10,0,0" VerticalAlignment="Top" Width="272" Height="60" FontSize="36" FontFamily="Calibri" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FFFFB5B5" BorderThickness="2,2,2,0"/>
+            <Label Content="Login" HorizontalAlignment="Left" Margin="71,75,0,0" VerticalAlignment="Top" Width="139" Height="40" FontSize="22" FontFamily="Calibri" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="2,2,5,5" BorderBrush="#FFFFB5B5" BorderThickness="2,0,2,2"/>
+            <Rectangle HorizontalAlignment="Left" Height="248" Margin="40,153,0,0" VerticalAlignment="Top" Width="202" Fill="#FFF7EDED" Stroke="#FFFFB5B5"/>
+            <TextBox x:Name="usernamefieldLogin" HorizontalAlignment="Left" Height="35" Margin="71,197,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Width="139" BorderThickness="0,0,0,2" Padding="5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="16" FontFamily="Calibri" Background="#FFF7EDED" BorderBrush="#FFFFB5B5" GotFocus="TextFields_GotFocus" LostFocus="textboxes_LostFocus"/>
+            <PasswordBox x:Name="passwordBoxlogin" HorizontalAlignment="Left" Margin="71,247,0,0" VerticalAlignment="Top" Width="139" Height="35" Background="#FFF7EDED" BorderBrush="#FFFFB5B5" Padding="5" FontFamily="Calibri" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0,0,0,2" Password="Password" GotFocus="PasswordBox_GotFocus_1" LostFocus="PasswordBox_LostFocus"/>
+            <Button x:Name="login_btn" Content="Login" HorizontalAlignment="Left" Margin="96,320,0,0" VerticalAlignment="Top" Width="95" Height="30" FontFamily="Calibri" FontSize="16" Background="#FFF1F1F1" BorderBrush="#FFFFB5B5" BorderThickness="2" Click="Login_btn_Click" IsDefault="True"/>
+            <Label Content="To register," HorizontalAlignment="Left" Margin="67,412,0,0" VerticalAlignment="Top" Height="31" FontFamily="Calibri" FontSize="14"/>
+            <Button x:Name="clickhereLogin" Content="Click here" HorizontalAlignment="Left" Margin="142,415,0,0" VerticalAlignment="Top" Width="66" Background="#FFF1F1F1" BorderBrush="#FFFFB5B5" BorderThickness="1" FontFamily="Calibri" Height="21" Click="ClickhereLogin_Click"/>
+        </Grid>
+        <Grid x:Name="addressbookGrid" Margin="0,-2,0,0" Grid.ColumnSpan="2" Visibility="Visible" Background="#FFF1F1F1" d:IsHidden="True">
+            <ListBox x:Name="listItems" ItemTemplate="{DynamicResource buttonTemp}" Margin="10,136,17,0" Height="323" VerticalAlignment="Top" Background="#FFF1F1F1" BorderBrush="#FFFFB5B5" BorderThickness="0" MouseDoubleClick="ListItems_MouseDoubleClick"/>
+            <TextBox x:Name="searchBox" TextWrapping="Wrap" Text="Search" VerticalContentAlignment="Center" FontSize="16" FontFamily="Calibri" Margin="10,59,17,377" Background="#FFF1F1F1" Padding="5" BorderThickness="0,0,0,2" BorderBrush="#FFFFB5B5" GotFocus="TextFields_GotFocus" LostFocus="textboxes_LostFocus" TextChanged="SearchBox_TextChanged" />
+            <Label Content="Address Book" FontFamily="Calibri" FontWeight="Bold" FontSize="24" Margin="10,10,127,417" BorderBrush="#FFFFB5B5" BorderThickness="2,2,0,0"/>
+            <Ellipse Margin="11,106,261,345">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="plus.png" Stretch="Uniform"/>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Button x:Name="createnewAddress" Content="Create contact" BorderThickness="0" Background="#FFF1F1F1" BorderBrush="White" FontFamily="Calibri" FontSize="16" Margin="36,101,137,340" Click="CreatenewAddress_Click"/>
+        </Grid>
+        <Grid x:Name="profileGrid" Margin="0,-2,0,0" Grid.ColumnSpan="2" Background="#FFF1F1F1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="91*"/>
+                <ColumnDefinition Width="55*"/>
+            </Grid.ColumnDefinitions>
+            <Ellipse x:Name="photo" HorizontalAlignment="Left" Height="70" Margin="15,52,0,0" VerticalAlignment="Top" Width="70">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="{Binding photoAddress}"/>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Button x:Name="editorsave_btn" Content="Edit" HorizontalAlignment="Left" Margin="10,419,0,0" VerticalAlignment="Top" Width="115" Height="38" BorderBrush="#FFA0A0A0" BorderThickness="0" Background="#FFE6E6E6" Click="EditorSave_btn_Click"/>
+            <Button x:Name="delete_btn" Content="Delete" HorizontalAlignment="Left" Margin="155,419,0,0" VerticalAlignment="Top" Width="115" Height="38" BorderBrush="#FFA0A0A0" BorderThickness="0" Background="#FFE6E6E6" Grid.ColumnSpan="2" Click="Delete_btn_Click"/>
+            <Button x:Name="backProfile" Content="←" HorizontalAlignment="Left" Margin="15,10,0,0" VerticalAlignment="Top" Width="30" Height="30" BorderBrush="{x:Null}" BorderThickness="0" Background="#FFE6E6E6" FontFamily="Calibri" FontSize="20" FontWeight="Bold" Click="BackProfile_Click"/>
+            <TextBox x:Name="numberBox" HorizontalAlignment="Left" Height="40" Margin="103,170,0,0" TextWrapping="Wrap" Text="Number" VerticalAlignment="Top" Width="167" IsReadOnly="True" Background="Transparent" BorderBrush="#FFFFB5B5" Padding="5" BorderThickness="0,0,0,2" VerticalContentAlignment="Center" FontFamily="Calibri" FontSize="16" Focusable="False" GotFocus="TextFields_GotFocus" LostFocus="textboxes_LostFocus" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="companyBox" HorizontalAlignment="Left" Height="40" Margin="50,215,0,0" TextWrapping="Wrap" Text="Company" VerticalAlignment="Top" Width="220" IsReadOnly="True" Background="Transparent" BorderBrush="#FFFFB5B5" Padding="5" BorderThickness="0,0,0,2" VerticalContentAlignment="Center" FontFamily="Calibri" FontSize="16" Focusable="False" GotFocus="TextFields_GotFocus" LostFocus="textboxes_LostFocus" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="jobtitleBox" HorizontalAlignment="Left" Height="40" Margin="50,260,0,0" TextWrapping="Wrap" Text="Job Title" VerticalAlignment="Top" Width="220" IsReadOnly="True" Background="Transparent" BorderBrush="#FFFFB5B5" Padding="5" BorderThickness="0,0,0,2" VerticalContentAlignment="Center" FontFamily="Calibri" FontSize="16" Focusable="False" GotFocus="TextFields_GotFocus" LostFocus="textboxes_LostFocus" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="emailBox" HorizontalAlignment="Left" Height="40" Margin="50,305,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="220" IsReadOnly="True" Background="Transparent" BorderBrush="#FFFFB5B5" Padding="5" BorderThickness="0,0,0,2" VerticalContentAlignment="Center" FontFamily="Calibri" FontSize="16" Focusable="False" GotFocus="TextFields_GotFocus" LostFocus="textboxes_LostFocus" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="addressBox" HorizontalAlignment="Left" Height="40" Margin="50,350,0,0" TextWrapping="Wrap" Text="Address" VerticalAlignment="Top" Width="220" IsReadOnly="True" Background="Transparent" BorderBrush="#FFFFB5B5" Padding="5" BorderThickness="0,0,0,2" VerticalContentAlignment="Center" FontFamily="Calibri" FontSize="16" Focusable="False" GotFocus="TextFields_GotFocus" LostFocus="textboxes_LostFocus" Grid.ColumnSpan="2" />
+            <TextBox x:Name="nameBox" Height="44" Margin="0,64,10,0" TextWrapping="Wrap" Text="Full name" VerticalAlignment="Top" IsReadOnly="True" Background="Transparent" BorderBrush="#FFFFB5B5" Padding="5" BorderThickness="0,0,0,2" VerticalContentAlignment="Center" FontFamily="Calibri" FontSize="18" HorizontalAlignment="Right" Width="182" FontWeight="Bold" GotFocus="TextFields_GotFocus" Focusable="False" LostFocus="textboxes_LostFocus" Grid.ColumnSpan="2" />
+            <Button x:Name="picedit_btn" Content="Edit" HorizontalAlignment="Left" Margin="15,128,0,0" VerticalAlignment="Top" Width="70" Background="#FFF1F1F1" BorderBrush="#FFFFB5B5" Click="Picedit_btn_Click"/>
+            <TextBox x:Name="codeBox" HorizontalAlignment="Left" Height="40" Margin="50,170,0,0" TextWrapping="Wrap" Text="Code" VerticalAlignment="Top" Width="48" IsReadOnly="True" Background="Transparent" BorderBrush="#FFFFB5B5" Padding="5" BorderThickness="0,0,0,2" VerticalContentAlignment="Center" FontFamily="Calibri" FontSize="16" Focusable="False" GotFocus="TextFields_GotFocus" LostFocus="textboxes_LostFocus"/>
+            <Image HorizontalAlignment="Left" Height="20" Margin="10,182,0,0" VerticalAlignment="Top" Width="20" Source="phone-solid.png"/>
+            <Image HorizontalAlignment="Left" Height="20" Margin="10,227,0,0" VerticalAlignment="Top" Width="20" Source="building-solid.png"/>
+            <Image HorizontalAlignment="Left" Height="20" Margin="10,271,0,0" VerticalAlignment="Top" Width="20" Source="user-md-solid.png"/>
+            <Image HorizontalAlignment="Left" Height="20" Margin="10,316,0,0" VerticalAlignment="Top" Width="20" Source="envelope-solid.png"/>
+            <Image HorizontalAlignment="Left" Height="20" Margin="10,362,0,0" VerticalAlignment="Top" Width="20" Source="map-marker-alt-solid.png"/>
+        </Grid>
+
+    </Grid>
+</Window>
